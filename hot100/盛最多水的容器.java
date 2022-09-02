@@ -45,15 +45,8 @@ class Solution {
         int right=height.length-1;
         int res=0;
         while(left<right){
-            int h=Math.min(height[left],height[right]);
-            int area=h*(right-left);
-            res=Math.max(res,area);
-            if(height[left]<height[right]){
-                left++;
-            }
-            else {
-                right--;
-            }
+            res=height[left]<height[right]
+                    ?height[left++]*(right-left)：height[right--]*(right-left);
         }
         return res;
     }
